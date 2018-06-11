@@ -1,4 +1,4 @@
-# matrix-digital-rain
+# digital-rain
 
 digital is a plugin for showing the matrix digital rains
 
@@ -8,7 +8,7 @@ digital is a plugin for showing the matrix digital rains
 
 # Examples
 
-see the [demo](https://zhaihaoran.github.io/matrix-digital-rain/);
+see the [demo](https://zhaihaoran.github.io/digital-rain/);
 
 ```html
 <body>
