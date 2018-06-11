@@ -13,10 +13,9 @@ const defaults = {
     isMustTop: true, // 是否一定要从顶端开始下落，false的话为随机出现
     mode: "window", // window | inherit
     linePercent: 1, // 在哪里截止，默认为最底端
-    font_size: 20, // 列宽度 字体宽度
+    lineWidth: 20, // 列宽度 字体宽度
     firstLetterColor: "#FFF", // 首字符颜色，默认为白色
     letterColor: "#6D2", // 字符流的颜色
-    background: "#000",
     width: 600, // canvas 宽度
     height: 600 // canvas 高度
 }
@@ -78,7 +77,7 @@ class Digital {
         // 列数
         this._chars = this.options.letters.split('');
 
-        var _columns = Math.ceil(width / this.options.font_size);
+        var _columns = Math.ceil(width / this.options.lineWidth);
 
         for (let i = 0; i < _columns; i++) {
             this.drops[i] = this.options.isMustTop ? (Math.random() * this.options.letterSpace) - this.options.letterSpace : (Math.random() * this.options.letterSpace);
@@ -87,7 +86,7 @@ class Digital {
 
     initBackground() {
         /* init background */
-        this.context.fillStyle = this.options.background;
+        this.context.fillStyle = '#000';
         this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
@@ -96,7 +95,7 @@ class Digital {
 
         // 新字母用白色渲染
         const {
-            font_size,
+            lineWidth,
             linePercent,
             isMustTop,
             letterSpace,
@@ -107,9 +106,9 @@ class Digital {
         for (let i = 0; i < this.drops.length; i++) {
             this.drops[i]++;
             this.text[i] = this._chars[Math.floor(Math.random() * this._chars.length)];
-            this.context.fillText(this.text[i], i * font_size, this.drops[i] * font_size);
+            this.context.fillText(this.text[i], i * lineWidth, this.drops[i] * lineWidth);
             // Sending the drop to the top randomly, after it has crossed the screen.
-            if (this.drops[i] * font_size > this.canvas.height * linePercent) {
+            if (this.drops[i] * lineWidth > this.canvas.height * linePercent) {
                 this.drops[i] = isMustTop ? (Math.random() * letterSpace) - letterSpace : (Math.random() * letterSpace);
             }
         }
@@ -117,17 +116,17 @@ class Digital {
 
     drawRawData() {
         const {
-            font_size,
+            lineWidth,
             hidenRate
         } = this.options;
 
-        this.context.font = font_size + "px 'Consolas', 'Lucida Console'";
+        this.context.font = lineWidth + "px 'Consolas', 'Lucida Console'";
         this.context.fillStyle = "rgba(0, 0, 0," + hidenRate + ")";
         this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
         this.context.fillStyle = "#6D2";
         for (let i = 0; i < this.drops.length; i++) {
-            this.context.fillText(this.text[i] || this._chars[Math.floor(Math.random() * this._chars.length)], i * font_size, this.drops[i] * font_size);
+            this.context.fillText(this.text[i] || this._chars[Math.floor(Math.random() * this._chars.length)], i * lineWidth, this.drops[i] * lineWidth);
         }
     }
 

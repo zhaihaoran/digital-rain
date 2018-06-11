@@ -3,7 +3,7 @@
 digital is a plugin for showing the matrix digital rains
 
 - light : only 100 lines source code and have no dependency
-- Plentiful : there are over 15 configuration items for developers to customize situations
+- plentiful : there are over 15 configuration items for developers to customize situations
 - annotation : clear annotation for others to read and revise
 
 # Examples
