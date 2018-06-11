@@ -1,5 +1,7 @@
 # digital-rain
 
+![matrix](https://github.com/zhaihaoran/digital-rain/raw/master/matrix.gif)
+
 digital is a plugin for showing the matrix digital rains
 
 - light : only 100 lines source code and have no dependency
