@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>digital rains</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script src="../digital.js"></script>
+    <script>
+        let digital = new Digital({
+            ele: "#canvas", // dom节点
+            hidenRate: 0.025, // 字母消失速度
+            letters: "123456789!@#$%^&*~ABCDEFGHIJKLMNOPQRSTUVWXYZ", // 字符集
+            fallRate: 65, // 列下降速度
+            textDir: "ltr", // 字母方向
+            letterSpace: 60, // 列之间的落差范围
+            isMustTop: true, // 是否一定要从顶端开始下落，false的话为随机出现
+            mode: "window", // window | inherit
+            linePercent: 1, // 在哪里截止，默认为最底端
+            font_size: 20, // 列宽度 字体宽度
+            firstLetterColor: "#FFF", // 首字符颜色，默认为白色
+            letterColor: "#6D2", // 字符流的颜色
+            background: "#000",
+            width: 600, // canvas 宽度
+            height: 600 // canvas 高度
+        });
+
+        document.querySelector('#canvas').addEventListener('click',function(){
+            if (digital._state) {
+                digital.stop();
+            } else {
+                digital.start();
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -43,3 +43,15 @@ const defaults = {
     height: 600 // canvas 高度
 }
 ```
+
+# Event
+
+```js
+document.querySelector('#canvas').addEventListener('click',function(){
+    if (digital._state) {
+        digital.stop();
+    } else {
+        digital.start();
+    }
+})
+```
